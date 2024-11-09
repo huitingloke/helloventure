@@ -66,6 +66,7 @@ const EventDisplayColumn = () => {
               date={data.date || ''}
               attendees={data.attendees || 0}
               description={data.description || ''}
+              price={data.price || 0}
             />
           </div>
         ))}
