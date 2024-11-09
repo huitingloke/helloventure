@@ -47,7 +47,7 @@ export default function PenpalMatch() {
       <div className="flex flex-col gap-4 w-full max-w-xs">
         <button 
           className="w-full py-3 px-6 bg-blue-500 text-pink-100 rounded-full hover:bg-blue-600 transition-colors"
-          onClick={() => router.push('/chats/penpal/chat/fox')}
+          onClick={() => router.push()}
         >
           Say Hello!
         </button>

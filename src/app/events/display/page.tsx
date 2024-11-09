@@ -19,6 +19,28 @@ export default function HomePage() {
   const router = useRouter()
   const [showFilters, setShowFilters] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  interface TripData {
+    cityTitle: string
+    countryName: string
+    duration: string
+    imageUrl: string
+    forumLink: string
+    price: number
+    attendees: number
+  }
+
+  const trips: TripData[] = [
+    {
+      cityTitle: "Paris",
+      countryName: "France",
+      duration: "7 days",
+      imageUrl: "/images/paris.jpg",
+      forumLink: "/forum/paris",
+      price: 1500,
+      attendees: 12
+    }
+  ]
+
   const [activeFilter, setActiveFilter] = useState('')
   const [filteredTrips, setFilteredTrips] = useState(trips)
 
@@ -36,19 +58,19 @@ export default function HomePage() {
     })
 
     let sortedResults = [...searchResults]
-    
+  
     switch(activeFilter) {
       case 'price-low':
-        // Add price sorting logic when price is added to TripData
+        sortedResults.sort((a, b) => a.price - b.price)
         break
       case 'price-high':
-        // Add price sorting logic when price is added to TripData
+        sortedResults.sort((a, b) => b.price - a.price)
         break
       case 'more-10':
-        // Add traveller filtering logic when traveller count is added to TripData
+        sortedResults = sortedResults.filter(trip => trip.attendees >= 10)
         break
       case 'less-10':
-        // Add traveller filtering logic when traveller count is added to TripData
+        sortedResults = sortedResults.filter(trip => trip.attendees < 10)
         break
     }
 
@@ -92,6 +114,9 @@ export default function HomePage() {
             className="p-2 text-sky-500 hover:text-sky-700 transition-colors"
           >
             <IoFilterOutline size={20} />
+          </button>
+          <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full shadow-md hover:shadow-lg transition-shadow duration-300 font-semibold ml-2 mr-2">
+            ✨ Curate
           </button>
         </div>
 
@@ -164,6 +189,8 @@ interface TripData {
   duration: string
   imageUrl: string
   forumLink: string
+  price: number
+  travelers: number
 }
 
 const trips: TripData[] = [
@@ -172,7 +199,8 @@ const trips: TripData[] = [
     countryName: "France",
     duration: "7 days",
     imageUrl: "/images/paris.jpg",
-    forumLink: "/forum/paris"
+    forumLink: "/forum/paris",
+    price: 1500,
+    travelers: 12
   }
-  // Add more trips as needed
 ]
