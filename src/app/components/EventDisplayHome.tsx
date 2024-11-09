@@ -13,7 +13,6 @@ interface EventDisplayHomeProps {
   date: string;
   attendees: number;
   description: string;
-  price: number;
 }
 
 const EventDisplayHome: React.FC<EventDisplayHomeProps> = ({
@@ -25,8 +24,7 @@ const EventDisplayHome: React.FC<EventDisplayHomeProps> = ({
   forumLink,
   date,
   attendees,
-  description,
-  price
+  description
 }) => {
   const pastelColors = [
     'bg-pink-200',
@@ -61,15 +59,10 @@ const EventDisplayHome: React.FC<EventDisplayHomeProps> = ({
         <span className="text-gray-900 text-sm mb-2">
           {cityTitle} - {date} - {duration}
         </span>
-        <div className='flex flex-row items-center mb-4 justify-between w-full'>
-          <div className='flex items-center'>
-            <HiUsers className="text-gray-900 text-sm" />
-            <span className="text-gray-900 text-sm ml-1">
-              {attendees} 
-            </span>
-          </div>
-          <span className="text-gray-900 text-sm">
-            ${price}
+        <div className='flex flex-row items-center mb-4'>
+          <HiUsers className="text-gray-900 text-sm" />
+          <span className="text-gray-900 text-sm ml-1">
+            {attendees} 
           </span>
         </div>
         <Link 

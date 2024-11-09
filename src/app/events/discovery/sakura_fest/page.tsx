@@ -121,7 +121,7 @@ export default function EventDiscoveryPage() {
 
         <div className="p-6 bg-gray-50 border-t border-gray-100">
           <button 
-            onClick={() => router.push('/events/redirection')}
+            onClick={() => router.push('/signup')}
             className="w-full bg-gradient-to-r from-pink-400 to-purple-400 text-white font-semibold py-4 px-6 rounded-xl hover:opacity-90 transition-opacity text-lg"
           >
             Sign Up Now!
